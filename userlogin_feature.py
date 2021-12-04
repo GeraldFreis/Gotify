@@ -15,6 +15,9 @@ login_conditional_test = True
 username = str()
 
 
+
+
+
 """Login class"""
 class Login:        
     def __init__(self):
@@ -40,7 +43,6 @@ class Login:
         except FileNotFoundError or FileExistsError:
             print("You do not have the necessary assets in this directory")
 
-
         """Returning user method"""
 
         def returning_user_window():
@@ -59,9 +61,9 @@ class Login:
                     for pair in list_of_names:
                         for word in pair:
                             if word == name:
+                                global username
                                 print("moving you into the app {}".format(name))
                                 existing_account_test = True
-                                username = name
                                 return existing_account_test, username
                             return username
                         return username
@@ -144,10 +146,14 @@ class Login:
         
         """Developer window"""
         def developer():
+
             print("This is a pass through and name will automatically be g")
+
             global username
             username = 'g'
+
             self.main_login_window.destroy()
+
             return username
         
         """New user method"""
@@ -343,3 +349,10 @@ class Login:
         self.spotify_logo_icon.grid(row=0, column=1, rowspan=2, columnspan=1, sticky='e')
 
         self.main_login_window.mainloop()
+
+"""Returning username method"""
+def returning_username():
+    global username
+    username
+    print(username)
+    return username

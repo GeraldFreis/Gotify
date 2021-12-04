@@ -8,7 +8,7 @@ from bottombar_feature import BottomBar
 """Modular imports"""
 from colours import main_black_background, deep_black
 from sidebar_feature import SideBar
-from userlogin_feature import Login, login_conditional_test, username
+from userlogin_feature import Login, login_conditional_test, returning_username
 from account_feature import AccountBar
 
 # login_screen = Login()
@@ -47,8 +47,8 @@ while login_conditional_test is True:
         bottombar = BottomBar(window=main_window)
         bottombar.apply()
         # account bar
-        accountbar = AccountBar(window=main_window)
-        accountbar.apply(username=username)
+        accountbar = AccountBar(window=main_window, username=returning_username())
+        accountbar.apply()
 
 
         # applying everything
