@@ -178,12 +178,15 @@ class Login:
                 self.dbcon = sql.connect(r"databases\user_list.db")
                 self.dbcursor = self.dbcon.cursor()
                 try:
+                    global username
                     data = (name, '')
+                    username = name
                     query = '''INSERT INTO users VALUES (?, ?)'''
                     self.dbcursor.execute(query, data)
                     self.dbcon.commit()
 
                     print("hello {} you have been signed up".format(name))
+                    return username
                     
                 except DatabaseError or DataError:
                     print("Problem in adding data to the database")
@@ -252,6 +255,7 @@ class Login:
 
             # mainloop
             self.new_user_login_window.mainloop()
+            return username
 
         """Setting up features"""
         
