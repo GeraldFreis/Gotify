@@ -5,6 +5,7 @@ import sqlite3 as sql
 from sqlite3.dbapi2 import DataError, DatabaseError
 from PIL import Image, ImageTk
 
+
 """Modular imports"""
 from colours import (deep_black, 
 unhighlighted_text)
@@ -13,6 +14,7 @@ unhighlighted_text)
 """Globals"""
 login_conditional_test = True
 username = str()
+
 
 """Login class"""
 class Login:        
@@ -140,6 +142,7 @@ class Login:
 
             return username
         
+
         """Developer window"""
         def developer():
 
@@ -152,6 +155,7 @@ class Login:
 
             return username
         
+
         """New user method"""
         def new_user():
             global username
@@ -331,6 +335,7 @@ class Login:
 
         return login_conditional_test
 
+
     def apply(self):
         # centering frame
         self.frame_to_center.grid(row=0, rowspan=3, column=1, columnspan=1)
@@ -349,6 +354,7 @@ class Login:
         self.spotify_logo_icon.grid(row=0, column=1, rowspan=2, columnspan=1, sticky='e')
 
         self.main_login_window.mainloop()
+
 
 """Returning username method"""
 def returning_username():
