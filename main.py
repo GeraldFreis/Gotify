@@ -43,13 +43,14 @@ while login_conditional_test is True:
         # sidebar
         sidebar = SideBar(window=main_window)
         sidebar.apply()
+
         # bottom bar
         bottombar = BottomBar(window=main_window)
         bottombar.apply()
+
         # account bar
         accountbar = AccountBar(window=main_window, username=returning_username())
         accountbar.apply()
 
-
-        # applying everything
+        """Applying everything"""
         main_window.mainloop()

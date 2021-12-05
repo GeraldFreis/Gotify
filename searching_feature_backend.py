@@ -5,6 +5,7 @@ from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 import webbrowser as wb
 
+
 """Modular imports"""
 
 def real_search(search):
