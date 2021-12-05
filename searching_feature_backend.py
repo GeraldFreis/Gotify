@@ -51,5 +51,3 @@ def writing_search_to_db(search):
 
     except DatabaseError or DataError:
         print('n')
-
-writing_search_to_db('nig')
