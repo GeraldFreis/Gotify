@@ -8,42 +8,47 @@ import tkinter as tk
 from searching_feature_frontend import search
 
 def real_search(search):
-    urllib.open("www.google.com+search")
+    urllib.open("www.google.com  + {}".format(search))
 
-def writing_search_to_db(self, search):
+def writing_search_to_db(search):
 
     """Initialising database"""
 
-    self.dbcon = sql.connect(r"databases/recent_searches.db")
-    self.dbcursor = self.dbcon.cursor()
+    dbcon = sql.connect(r"databases/recent_searches.db")
+    dbcursor = dbcon.cursor()
 
     """writing features"""
 
     # checking if the tabels exist and if not creating them
     try:
         creating_database_query = '''CREATE TABLE searches (search, number)'''
-        self.dbcon.execute(creating_database_query)
-        self.dbcon.commit()
+        dbcon.execute(creating_database_query)
+        dbcon.commit()
 
     except DatabaseError or DataError:
-        print("Table already exists")
+        print('')
     
     # finding most recent number and hence the number to use for the searches
     try:
-        retrieving_number_query = '''SELECT * FROM searches COLUMN number'''
-        raw_number_list = list(self.dbcon.execute(retrieving_number_query))
-        sorted_number_list = raw_number_list.sort(reverse=True)
-        self.last_number = sorted_number_list[0]
+        retrieving_number_query = '''SELECT * FROM searches'''
+        raw_pair_list = list(dbcon.execute(retrieving_number_query))
+        raw_pair_list.sort(reverse=True)
+        latest_pair = raw_pair_list[0]
+        last_number = latest_pair[1]
 
     except DataError or DatabaseError:
-        print("Something went wrong here at line 52")
+        print("Something went wrong here at line 39")
     
     # writing the search to the table
     try:
-        number = self.last_number + 1
+        number = last_number + 1
         adding_search_query = '''INSERT INTO searches VALUES (?, ?)'''
         data = (search, number)
-        self.dbcon.execute(adding_search_query, data)
+        dbcon.execute(adding_search_query, data)
+        dbcon.commit()
+        print('added search to database')
 
     except DatabaseError or DataError:
         print('n')
+
+writing_search_to_db('nig')
