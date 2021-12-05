@@ -24,12 +24,12 @@ class AccountBar:
         self.large_font = font.Font(family="Gothic Medium", size=40)
         self.name_label = tk.Label(master=self.main_widget_frame,
         text='Hello {}'.format(username),
-        width=5, height=1,
+        width=6, height=1,
         font=self.large_font,
         border=0,
         bg=deep_black,
         fg=unhighlighted_text,
-        anchor='e')
+        anchor='center')
 
     def apply(self):
         self.name_label.grid(row=1, column=5, columnspan=2)
