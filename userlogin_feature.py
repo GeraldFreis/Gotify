@@ -14,10 +14,6 @@ unhighlighted_text)
 login_conditional_test = True
 username = str()
 
-
-
-
-
 """Login class"""
 class Login:        
     def __init__(self):
