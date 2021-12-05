@@ -10,6 +10,7 @@ import sqlite3 as sql
 """Modular Imports"""
 from colours import (deep_black,
 unhighlighted_text, main_black_background)
+from searching_feature_backend import writing_search_to_db
 
 """Globals"""
 search = str()
@@ -93,8 +94,12 @@ class Searching:
 
         # returning entry contents
         def returning_contents():
+
             global search
+
             search = self.entry_field.get()
+            writing_search_to_db(search=search)
+
             self.main_search_window.destroy()
 
             return search

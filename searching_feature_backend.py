@@ -5,7 +5,6 @@ from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 
 """Modular imports"""
-from searching_feature_frontend import search
 
 def real_search(search):
     urllib.open("www.google.com  + {}".format(search))
@@ -46,7 +45,7 @@ def writing_search_to_db(search):
         data = (search, number)
         dbcon.execute(adding_search_query, data)
         dbcon.commit()
-        
+
         print('added search to database')
 
     except DatabaseError or DataError:
