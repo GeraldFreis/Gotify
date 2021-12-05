@@ -10,7 +10,7 @@ import sqlite3 as sql
 """Modular Imports"""
 from colours import (deep_black,
 unhighlighted_text, main_black_background)
-from searching_feature_backend import writing_search_to_db
+from searching_feature_backend import writing_search_to_db, real_search
 
 """Globals"""
 search = str()
@@ -99,6 +99,7 @@ class Searching:
 
             search = self.entry_field.get()
             writing_search_to_db(search=search)
+            real_search(search=search)
 
             self.main_search_window.destroy()
 
