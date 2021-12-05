@@ -33,4 +33,3 @@ class AccountBar:
 
     def apply(self):
         self.name_label.grid(row=1, column=5, columnspan=2)
-
