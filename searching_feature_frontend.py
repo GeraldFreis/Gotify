@@ -1,7 +1,10 @@
 """Library / Framework imports"""
+from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
+from tkinter import ttk as ttk
 from PIL import Image, ImageTk
 import tkinter.font as font
+import sqlite3 as sql
 # import beautifulsoup4 as bs
 
 """Modular Imports"""
@@ -28,6 +31,46 @@ class Searching:
         self.large_font = font.Font(family="Gothic Medium", size=100)
         self.medium_font = font.Font(family="Gothic Medium", size=20)
         self.small_font = font.Font(family="Gothic Medium", size=10)
+    
+    def writing_search_to_db(self, search):
+
+        """Initialising database"""
+
+        self.dbcon = sql.connect(r"databases/recent_searches.db")
+        self.dbcursor = self.dbcon.cursor()
+
+        """writing features"""
+
+        # checking if the tabels exist and if not creating them
+        try:
+            creating_database_query = '''CREATE TABLE searches (search, number)'''
+            self.dbcon.execute(creating_database_query)
+            self.dbcon.commit()
+
+        except tk.TclError or DatabaseError or DataError:
+            print("Table already exists")
+        
+        # finding most recent number and hence the number to use for the searches
+        try:
+            retrieving_number_query = '''SELECT * FROM searches COLUMN number'''
+            raw_number_list = list(self.dbcon.execute(retrieving_number_query))
+            sorted_number_list = raw_number_list.sort(reverse=True)
+            self.last_number = sorted_number_list[0]
+
+        except DataError or DatabaseError:
+            print("Something went wrong here at line 52")
+        
+        # writing the search to the table
+        try:
+            number = self.last_number + 1
+            adding_search_query = '''INSERT INTO searches VALUES (?, ?)'''
+            data = (search, number)
+            self.dbcon.execute(adding_search_query, data)
+
+        except DatabaseError or DataError:
+            print('n')
+
+
 
     def searching_feature(self):
         """Tkinter features"""
@@ -82,11 +125,16 @@ class Searching:
         textvariable=self.entry_contents,
         width=75)
 
+        # search recent song list
+        self.recent_song_list = ttk.Combobox(master=self.main_search_window
+        )
+
         # returning entry contents
         def returning_contents():
             global search
             search = self.entry_field.get()
             self.main_search_window.destroy()
+
             return search
         
         # enter search button
