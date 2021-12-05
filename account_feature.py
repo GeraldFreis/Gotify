@@ -5,6 +5,7 @@ import tkinter.font as font
 """Modular imports"""
 from colours import (deep_black, unhighlighted_text)
 
+
 """Bar to say hello to the person logging in"""
 
 class AccountBar:
