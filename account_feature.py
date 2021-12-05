@@ -28,7 +28,8 @@ class AccountBar:
         font=self.large_font,
         border=0,
         bg=deep_black,
-        fg=unhighlighted_text)
+        fg=unhighlighted_text,
+        anchor='e')
 
     def apply(self):
         self.name_label.grid(row=1, column=5, columnspan=2)
