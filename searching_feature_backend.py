@@ -46,6 +46,7 @@ def writing_search_to_db(search):
         data = (search, number)
         dbcon.execute(adding_search_query, data)
         dbcon.commit()
+        
         print('added search to database')
 
     except DatabaseError or DataError:
