@@ -17,7 +17,7 @@ class AccountBar:
         """Making the main widget"""
         self.main_widget_frame = tk.Frame(window,
         bg=deep_black,
-        width=5, height=1).grid(row=1, column=4, columnspan=2)
+        width=5, height=1).grid(row=1, column=5, columnspan=2)
 
         """Features"""
         # fonts
@@ -31,5 +31,5 @@ class AccountBar:
         fg=unhighlighted_text)
 
     def apply(self):
-        self.name_label.grid(row=1, column=4, columnspan=2)
+        self.name_label.grid(row=1, column=5, columnspan=2)
 
