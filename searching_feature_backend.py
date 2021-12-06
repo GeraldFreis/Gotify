@@ -4,12 +4,14 @@ import sqlite3 as sql
 from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 import webbrowser as wb
-from mouseinfo import PyAutoGui as pag
+# from mouseinfo import PyAutoGui as pag
 
 """Modular imports"""
 
 def real_search(search):
     wb.open("https://www.youtube.com/results?search_query={}".format(search))
+
+    # COMMENTED BECAUSE CLICKING FEATURE CAN BE INITIALISED LATER
     # pag.click()
 
 def writing_search_to_db(search):
