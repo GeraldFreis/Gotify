@@ -21,6 +21,7 @@ while login_conditional_test is True:
 
     login_screen = Login()
     login_screen.apply()
+    
     # if login_screen.check_close() is False:
     #     main_window_conditional_test = False
     #     login_conditional_test = False
