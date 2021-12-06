@@ -98,7 +98,9 @@ class Searching:
             global search
 
             search = self.entry_field.get()
+            
             writing_search_to_db(search=search)
+
             real_search(search=search)
 
             self.main_search_window.destroy()
