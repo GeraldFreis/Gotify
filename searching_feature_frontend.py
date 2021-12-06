@@ -10,7 +10,8 @@ import sqlite3 as sql
 """Modular Imports"""
 from colours import (deep_black,
 unhighlighted_text, main_black_background)
-from searching_feature_backend import writing_search_to_db, real_search
+from searching_feature_backend import writing_search_to_db
+from liked_songs_feature import LikedSongs
 
 """Globals"""
 search = str()
@@ -98,10 +99,14 @@ class Searching:
             global search
 
             search = self.entry_field.get()
-            
+
             writing_search_to_db(search=search)
 
-            real_search(search=search)
+            likedsong = LikedSongs(search)
+            likedsong.creating_question_tab()
+
+
+
 
             self.main_search_window.destroy()
 

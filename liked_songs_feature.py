@@ -7,6 +7,7 @@ import sqlite3 as sql
 
 """Modular imports"""
 from colours import deep_black, unhighlighted_text
+from searching_feature_backend import real_search
 
 """Liked Song Class"""
 
@@ -87,6 +88,9 @@ class LikedSongs():
                         print("There was a problem within adding liked songs feature")  
 
             adding_liked_song(self.user_search)
+            real_search(self.user_search)
+            self.main_window.destroy()
+
         #   # no button command
         def no_option():
             self.main_window.destroy()
@@ -127,5 +131,5 @@ class LikedSongs():
 
     
 
-likedsong = LikedSongs('hi')
-likedsong.creating_question_tab()
+# likedsong = LikedSongs('hi')
+# likedsong.creating_question_tab()
