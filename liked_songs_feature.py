@@ -41,7 +41,7 @@ class LikedSongs():
 
         self.main_window = tk.Tk()
         self.main_window.title("Add Song to Liked Songs")
-        self.main_window.geometry("300x300+400+500")
+        self.main_window.geometry("500x100+400+500")
         self.main_window.config(bg=deep_black)
 
         # fonts
