@@ -14,7 +14,7 @@ from searching_feature_backend import real_search
 
 class LikedSongs():
 
-    def __init__(self, search:type = str):
+    def __init__(self, search, search_window):
 
         # initialising the databases
         self.dbcon = sql.connect(r'databases/liked_songs.db')
@@ -22,6 +22,9 @@ class LikedSongs():
 
         # search
         self.user_search = search
+
+        # search window
+        self.main_search_window = search_window
 
         # # creating table if it does not already exist
         # try:
@@ -69,6 +72,7 @@ class LikedSongs():
                                 latest_number = int(latest_pair[1])
                             except IndexError:
                                 latest_number = 0
+                                print("Index out of range - code line 75 in liked songs feature")
                             return latest_number
 
                         except DataError or DatabaseError:
@@ -89,6 +93,7 @@ class LikedSongs():
 
             adding_liked_song(self.user_search)
             real_search(self.user_search)
+            self.main_search_window.destroy()
             self.main_window.destroy()
 
         #   # no button command

@@ -102,11 +102,8 @@ class Searching:
 
             writing_search_to_db(search=search)
 
-            likedsong = LikedSongs(search)
+            likedsong = LikedSongs(search, self.main_search_window)
             likedsong.creating_question_tab()
-
-
-
 
             self.main_search_window.destroy()
 
