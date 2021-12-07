@@ -11,22 +11,17 @@ from sidebar_feature import SideBar
 from userlogin_feature import Login, login_conditional_test, returning_username
 from account_feature import AccountBar
 
-# login_screen = Login()
-# login_screen.apply()
+
 
 main_window_conditional_test = True
 
 """Window initialisation and settings"""
+
 while login_conditional_test is True:
 
+    """Initialising login screen"""
     login_screen = Login()
     login_screen.apply()
-    
-    # if login_screen.check_close() is False:
-    #     main_window_conditional_test = False
-    #     login_conditional_test = False
-
-    # print(login_conditional_test)
 
     if main_window_conditional_test is True:
         main_window = tk.Tk()
