@@ -1,5 +1,5 @@
 Dependencies:
-tkinter, sqlite3, beautifulsoup4, Pillow, webbrowser
+tkinter, sqlite3, beautifulsoup4, Pillow, webbrowser, time and mouse
 
 Program made with tkinter to emulate spotify, named gotify
 Program follows a minimalistic model of design and very basic widgets as this is my first real project with tkinter other than previous dabbles
