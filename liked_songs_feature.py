@@ -98,6 +98,8 @@ class LikedSongs():
 
         #   # no button command
         def no_option():
+            real_search(self.user_search)
+            self.main_search_window.destroy()
             self.main_window.destroy()
 
         # labels
