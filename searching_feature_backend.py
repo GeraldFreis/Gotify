@@ -17,6 +17,7 @@ def real_search(search):
     # COMMENTED BECAUSE CLICKING FEATURE CAN BE INITIALISED LATER
     # pag.click()
 
+
 def writing_search_to_db(search):
 
     """Initialising database"""

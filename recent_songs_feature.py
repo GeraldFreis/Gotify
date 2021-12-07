@@ -6,6 +6,7 @@ import  sqlite3 as sql
 
 """Modular Imports"""
 from colours import deep_black, unhighlighted_text
+from searching_feature_backend import real_search
 
 """Recent songs configuration"""
 
@@ -78,8 +79,12 @@ class RecentSongs():
 
             for song in songs_to_display:
                 # print(song)
+                def compiled_real_search():
+                    real_search(search=song)
+                
                 song_label = tk.Button(master=song_frame,
                 bg=deep_black, fg=unhighlighted_text,
+                command=compiled_real_search,
                 text=song,
                 font=small_font).grid(row=beginning_row, column=1)
 
