@@ -77,8 +77,8 @@ class RecentSongs():
             beginning_row = 2
 
             for song in songs_to_display:
-                print(song)
-                song_label = tk.Label(master=song_frame,
+                # print(song)
+                song_label = tk.Button(master=song_frame,
                 bg=deep_black, fg=unhighlighted_text,
                 text=song,
                 font=small_font).grid(row=beginning_row, column=1)
