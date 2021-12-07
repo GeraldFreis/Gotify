@@ -32,7 +32,7 @@ class Searching:
     def searching_feature(self):
         """Fonts"""
         
-        self.large_font = font.Font(family="Gothic Medium", size=400)
+        self.large_font = font.Font(family="Gothic Medium", size=80)
         self.medium_font = font.Font(family="Gothic Medium", size=20)
         self.small_font = font.Font(family="Gothic Medium", size=10)
 
@@ -54,7 +54,7 @@ class Searching:
         
         # frame for labels
         
-        self.search_label_frame = tk.Frame(master=self.main_search_window, bg=deep_black, width=400, height=200, border=0)
+        self.search_label_frame = tk.Frame(master=self.main_search_window, bg=deep_black, border=0)
 
 
         # Gotify Label and image
@@ -70,18 +70,21 @@ class Searching:
 
         self.gotify_label = tk.Label(master=self.search_label_frame,
         text="Gotify",
-        font=new_main_font,
+        font=self.large_font,
+        image=self.spotify_icon_img,
+        compound='left',
         bg=deep_black,
         fg=unhighlighted_text,
+        width=700, height=300,
         border=0)
 
         """Aesthetics"""
-        self.spotify_logo_icon = tk.Button(master=self.main_search_window,
-        bg=deep_black,
-        image=self.spotify_icon_img,
-        border=0,
-        height=325,
-        width=400)
+        # self.spotify_logo_icon = tk.Button(master=self.frame_to_center,
+        # bg=deep_black,
+        # image=self.spotify_icon_img,
+        # border=0,
+        # height=325,
+        # width=400)
 
 
         # guide label
@@ -142,17 +145,17 @@ class Searching:
 
         # centering frame
         # self.centering_frame.grid(row=0, column=0)
-
-        self.search_label_frame.grid(row=0, column=2, columnspan=2, rowspan=4)
         
-        self.frame_to_center.grid(row=0, rowspan=3, column=1, columnspan=1)
-        self.gotify_label.grid(row=0, column=1, rowspan=2, columnspan=3)
-        self.spotify_logo_icon.grid(row=0, column=1, rowspan=2, columnspan=1)
+        self.frame_to_center.grid(row=0, column=0, columnspan=1)
+        self.search_label_frame.grid(row=0, column=0, columnspan=3)
 
-        self.guide_label.grid(row=3, column=2, columnspan=1)
-        self.search_label.grid(row=4, column=1)
-        self.entry_field.grid(row=4, column=2)
-        self.enter_button.grid(row=5, column=3)
+        self.gotify_label.grid(row=0, column=0, rowspan=2, columnspan=3)
+        # self.spotify_logo_icon.grid(row=0, column=1, rowspan=2, columnspan=1)
+
+        self.guide_label.grid(row=3, column=1, columnspan=1)
+        self.search_label.grid(row=4, column=0)
+        self.entry_field.grid(row=4, column=1)
+        self.enter_button.grid(row=4, column=2)
         
     
     # def apply(self):
@@ -195,5 +198,4 @@ class Searching:
 def search_compiled():
     search_class = Searching()
     search_class.searching_feature()
-    search_class.apply()
 
