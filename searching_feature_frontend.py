@@ -156,40 +156,6 @@ class Searching:
         self.search_label.grid(row=4, column=0)
         self.entry_field.grid(row=4, column=1)
         self.enter_button.grid(row=4, column=2)
-        
-    
-    # def apply(self):
-    #     """Tkinter features"""
-
-    #     # centering frame
-    #     # self.centering_frame.grid(row=0, column=0)
-        
-    #     self.frame_to_center.grid(row=0, rowspan=3, column=1, columnspan=1)
-    #     self.gotify_label.grid(row=1, column=3)
-    #     self.spotify_logo_icon.grid(row=0, column=1, rowspan=2, columnspan=1)
-
-    #     self.guide_label.grid(row=3, column=2, columnspan=1)
-    #     self.search_label.grid(row=4, column=1)
-    #     self.entry_field.grid(row=4, column=2)
-    #     self.enter_button.grid(row=5, column=3)
-
-
-
-        # other frames
-        # self.gotify_label_frame.grid(row=0, column=3, rowspan=3, columnspan=4)
-        # self.gotify_image_frame.grid(row=0, column=0, rowspan=3, columnspan=4)
-        
-        # # other features
-
-        # # gotify label
-        # self.gotify_label.grid(row=0, column=5, rowspan=3, columnspan=4)
-        # # gotify image
-        # self.gotify_image_button.grid(row=0, rowspan=2, column=2, columnspan=2)
-
-        # self.guide_label.grid(row=4, column=5, rowspan=2)
-        # self.search_label.grid(row=6, column=5)
-        # self.entry_field.grid(row=6, column=6, columnspan=3)
-        # self.enter_button.grid(row=8, column=5, columnspan=2)
 
         # screen update
         self.main_search_window.mainloop()
