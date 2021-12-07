@@ -9,8 +9,11 @@ import webbrowser as wb
 """Modular imports"""
 
 def real_search(search):
-    wb.open("https://www.youtube.com/results?search_query={}".format(search))
-
+    if search == '':
+        wb.open("https://www.youtube.com/results?search_query=rat")
+    else:
+        wb.open("https://www.youtube.com/results?search_query={}".format(search))
+    
     # COMMENTED BECAUSE CLICKING FEATURE CAN BE INITIALISED LATER
     # pag.click()
 

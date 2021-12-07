@@ -12,7 +12,6 @@ from userlogin_feature import Login, login_conditional_test, returning_username
 from account_feature import AccountBar
 
 
-
 main_window_conditional_test = True
 
 """Window initialisation and settings"""
