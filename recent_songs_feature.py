@@ -1,5 +1,6 @@
 """Library / Framework imports"""
 import tkinter as tk
+import tkinter.font as font
 import  sqlite3 as sql
 
 
@@ -41,6 +42,10 @@ class RecentSongs():
             main_recent_song_window.config(bg=deep_black)
             main_recent_song_window.geometry("1200x800+0+0")
 
+            # fonts
+            large_font = font.Font(family="Gothic Medium", size=100)
+            small_font = font.Font(family="Gothic Medium", size=10)
+
             """Frames"""
 
             # gotify label frame
@@ -51,7 +56,7 @@ class RecentSongs():
             # song display frame
             song_frame = tk.Frame(master=main_recent_song_window,
             bg=deep_black,
-            width=800, height=600).grid(row=2, column=1)
+            width=800, height=600).grid(row=2, column=1, rowspan=20)
 
             # centering frame
             centering_frame = tk.Frame(master=main_recent_song_window,
@@ -59,7 +64,35 @@ class RecentSongs():
             width=200, height=0).grid(row=0, column=0, rowspan=20)
 
             """Main Labels"""
+            
+            # gotify label
+            gotify_label = tk.Label(master=gotify_frame,
+            text="Gotify",
+            font=large_font,
+            bg=deep_black,
+            fg=unhighlighted_text).grid(row=0, column=1)
+
+            # songs to display
+            songs_to_display = retreiving_recent_songs()
+            beginning_row = 2
+
+            for song in songs_to_display:
+                print(song)
+                song_label = tk.Label(master=song_frame,
+                bg=deep_black, fg=unhighlighted_text,
+                text=song,
+                font=small_font).grid(row=beginning_row, column=1)
+
+                beginning_row += 1
+            
+            main_recent_song_window.mainloop()
+
+        widgets()
 
 
+def recent_songs_compiled():
+    recentsongs = RecentSongs()
+    recentsongs.displaying_songs()
 
+recent_songs_compiled()
 
