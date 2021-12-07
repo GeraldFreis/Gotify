@@ -91,8 +91,11 @@ class LikedSongs():
                     except DatabaseError or DataError:
                         print("There was a problem within adding liked songs feature")  
 
+
             adding_liked_song(self.user_search)
+
             real_search(self.user_search)
+
             self.main_search_window.destroy()
             self.main_window.destroy()
 

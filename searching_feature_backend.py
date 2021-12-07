@@ -6,18 +6,22 @@ from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 import webbrowser as wb
 import mouse 
+import time
+
 # from mouseinfo import PyAutoGui as pag
 
 """Modular imports"""
 
 def mouse_funct():
     mouse_pos = mouse.get_position()
-    video_pos = (660, 685)
+    print(mouse_pos)
+    video_pos = (150, 300)
 
-    # differencex = video_pos[0] - mouse_pos[0]
-    # differencey = video_pos[1] - mouse_pos[1]
+    differencex = video_pos[0] - mouse_pos[0]
+    differencey = video_pos[1] - mouse_pos[1]
 
-    mouse.drag(mouse_pos[0], mouse_pos[1], video_pos[0], video_pos[1])
+    time.sleep(4)
+    mouse.move(video_pos[0], video_pos[1], absolute=True, duration=0.01)
     mouse.click(button=LEFT)
 
 def real_search(search):

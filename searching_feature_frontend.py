@@ -1,10 +1,12 @@
 """Library / Framework imports"""
+from asyncio.events import get_event_loop
 from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 from tkinter import ttk as ttk
 from PIL import Image, ImageTk
 import tkinter.font as font
 import sqlite3 as sql
+import asyncio
 # import beautifulsoup4 as bs
 
 """Modular Imports"""
@@ -117,7 +119,6 @@ class Searching:
 
         # returning entry contents
         def returning_contents():
-
             global search
 
             search = self.entry_field.get()
