@@ -164,4 +164,3 @@ class Searching:
 def search_compiled():
     search_class = Searching()
     search_class.searching_feature()
-

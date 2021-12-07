@@ -1,18 +1,32 @@
 """Library / Framework importing"""
+from tkinter.constants import LEFT
 import urllib
 import sqlite3 as sql
 from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 import webbrowser as wb
+import mouse 
 # from mouseinfo import PyAutoGui as pag
 
 """Modular imports"""
 
+def mouse_funct():
+    mouse_pos = mouse.get_position()
+    video_pos = (660, 685)
+
+    # differencex = video_pos[0] - mouse_pos[0]
+    # differencey = video_pos[1] - mouse_pos[1]
+
+    mouse.drag(mouse_pos[0], mouse_pos[1], video_pos[0], video_pos[1])
+    mouse.click(button=LEFT)
+
 def real_search(search):
     if search == '':
         wb.open("https://www.youtube.com/results?search_query=rat")
+        mouse_funct()
     else:
         wb.open("https://www.youtube.com/results?search_query={}".format(search))
+        mouse_funct()
     
     # COMMENTED BECAUSE CLICKING FEATURE CAN BE INITIALISED LATER
     # pag.click()
