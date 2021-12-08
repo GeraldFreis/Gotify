@@ -23,6 +23,8 @@ while login_conditional_test is True:
     login_screen.apply()
 
     if main_window_conditional_test is True:
+
+        # initialising mainscreen 
         main_window = tk.Tk()
         main_window['bg'] = main_black_background
         main_window.geometry("1200x800+0+0")
