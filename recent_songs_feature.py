@@ -25,7 +25,6 @@ class RecentSongs():
             # creating lists to store recent searches
             retreiving_query = '''SELECT * FROM searches'''
             all_songs_raw_list = list(self.dbcon.execute(retreiving_query))
-            all_songs_raw_list.sort(reverse=True)
 
             # finding recent 20 songs and appending them to the display songs
             displayed_songs = list()
@@ -99,4 +98,4 @@ def recent_songs_compiled():
     recentsongs = RecentSongs()
     recentsongs.displaying_songs()
 
-# recent_songs_compiled()
+recent_songs_compiled()
