@@ -12,6 +12,8 @@ import time
 # from mouseinfo import PyAutoGui as pag
 
 """Modular imports"""
+from colours import deep_black, unhighlighted_text
+"""Functions"""
 
 def mouse_funct():
     mouse_pos = mouse.get_position()
@@ -60,11 +62,17 @@ def writing_search_to_db(search):
         retrieving_number_query = '''SELECT * FROM searches'''
         raw_pair_list = list(dbcon.execute(retrieving_number_query))
         raw_pair_list.sort(reverse=True)
-        latest_pair = raw_pair_list[0]
+
+        try:
+            latest_pair = raw_pair_list[0]
+        except IndexError:
+            latest_pair = (0,0)
+            
         last_number = latest_pair[1]
 
-    except DataError or DatabaseError:
+    except DataError or DatabaseError or IndexError:
         print("Something went wrong here at line 39")
+
     
     # writing the search to the table
     try:
@@ -76,22 +84,30 @@ def writing_search_to_db(search):
 
         print('added search to database')
 
-    except DatabaseError or DataError:
+    except DatabaseError or DataError or IndexError:
         print('n')
 
+"""Combobox"""
 def recent_song_combobox(main_window):
 
     """Connection to database"""
-    dbcon = sql.connect(r'databases\recent_songs.db')
+    dbcon = sql.connect(r'databases\recent_searches.db')
 
     """Retrieving songs"""
     retrieving_query = '''SELECT * FROM searches'''
-    all_info_list = set(dbcon.execute(retrieving_query))
-    song_list = all_info_list[0]
-    url_list = all_info_list[1]
-    print(url_list)
+    all_info_list = list(dbcon.execute(retrieving_query))
+    song_list = list()
 
+    for pair in all_info_list:
+        song_list.append(pair[0])
+
+    print(song_list)
     """Drawing the combobox"""
-    song_combobox = ttk.Combobox(master=main_window, values=song_list)
+    song_combobox = ttk.Combobox(master=main_window,
+    values=song_list,
+    background=deep_black,
+    foreground=unhighlighted_text,
+    height=10)
 
+    song_combobox.grid(row=5, column=1)
 

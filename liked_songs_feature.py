@@ -123,7 +123,7 @@ class LikedSongs():
         border=1)
 
         self.no_button = tk.Button(master=self.main_window,
-        text="Fuck Off",
+        text="Not this one",
         command=no_option,
         font=self.small_font,
         bg=deep_black,

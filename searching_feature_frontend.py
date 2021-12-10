@@ -12,7 +12,7 @@ import asyncio
 """Modular Imports"""
 from colours import (deep_black,
 unhighlighted_text, main_black_background)
-from searching_feature_backend import writing_search_to_db
+from searching_feature_backend import writing_search_to_db, recent_song_combobox
 from liked_songs_feature import LikedSongs
 
 """Globals"""
@@ -157,6 +157,7 @@ class Searching:
         self.search_label.grid(row=4, column=0)
         self.entry_field.grid(row=4, column=1)
         self.enter_button.grid(row=4, column=2)
+        recent_song_combobox(self.main_search_window)
 
         # screen update
         self.main_search_window.mainloop()
