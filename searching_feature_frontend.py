@@ -127,9 +127,6 @@ class Searching:
 
             likedsong = LikedSongs(search, self.main_search_window)
             likedsong.creating_question_tab()
-
-            self.main_search_window.destroy()
-
             return search
         
         # enter search button

@@ -23,16 +23,16 @@ def mouse_funct():
     differencex = video_pos[0] - mouse_pos[0]
     differencey = video_pos[1] - mouse_pos[1]
 
-    time.sleep(4)
+    time.sleep(3.5)
     mouse.move(video_pos[0], video_pos[1], absolute=True, duration=0.01)
     mouse.click(button=LEFT)
 
 def real_search(search):
     if search == '':
-        wb.open("https://www.youtube.com/results?search_query=rat")
+        wb.open("https://www.youtube.com/results?search_query=rat&sp=EgIQAQ%253D%253D")
         mouse_funct()
     else:
-        wb.open("https://www.youtube.com/results?search_query={}".format(search))
+        wb.open("https://www.youtube.com/results?search_query={}&sp=EgIQAQ%253D%253D".format(search))
         mouse_funct()
     
     # COMMENTED BECAUSE CLICKING FEATURE CAN BE INITIALISED LATER
@@ -67,7 +67,7 @@ def writing_search_to_db(search):
             latest_pair = raw_pair_list[0]
         except IndexError:
             latest_pair = (0,0)
-            
+
         last_number = latest_pair[1]
 
     except DataError or DatabaseError or IndexError:
@@ -103,8 +103,10 @@ def recent_song_combobox(main_window):
 
     print(song_list)
     """Drawing the combobox"""
+    text="Recent Searches"
     song_combobox = ttk.Combobox(master=main_window,
     values=song_list,
+    textvariable=text,
     background=deep_black,
     foreground=unhighlighted_text,
     height=10)
