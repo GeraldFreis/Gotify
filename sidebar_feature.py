@@ -11,7 +11,7 @@ highlighted_text)
 # from my_fonts import (main_font)
 
 from searching_feature_frontend import search_compiled
-
+from recent_songs_feature import recent_songs_compiled
 
 """Sidebar class"""
 
@@ -157,6 +157,7 @@ class SideBar():
 
         self.recent_songs_button = tk.Button(master=self.frame_side,
         text="Recent Songs",
+        # command=recent_songs_compiled,
         bg=deep_black,
         fg=unhighlighted_text,
         height=1, width=10,

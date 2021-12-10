@@ -17,7 +17,6 @@ from colours import deep_black, unhighlighted_text
 
 def mouse_funct():
     mouse_pos = mouse.get_position()
-    print(mouse_pos)
     video_pos = (150, 300)
 
     differencex = video_pos[0] - mouse_pos[0]
@@ -92,7 +91,7 @@ def writing_search_to_db(search):
         dbcon.execute(adding_search_query, data)
         dbcon.commit()
 
-        print('added search to database')
+        # print('added search to database')
 
     except DatabaseError or DataError or IndexError:
         print('n')
@@ -111,7 +110,7 @@ def recent_song_combobox(main_window):
     for pair in all_info_list:
         song_list.append(pair[0])
 
-    print(song_list)
+    # print(song_list)
     """Drawing the combobox"""
     text="Recent Searches"
     song_combobox = ttk.Combobox(master=main_window,
