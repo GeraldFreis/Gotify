@@ -58,21 +58,31 @@ def writing_search_to_db(search):
         print('')
     
     # finding most recent number and hence the number to use for the searches
+    # try:
+    #     retrieving_number_query = '''SELECT * FROM searches'''
+    #     raw_pair_list = list(dbcon.execute(retrieving_number_query))
+    #     raw_pair_list.sort(reverse=True)
+
+    #     try:
+    #         latest_pair = raw_pair_list[0]
+    #     except IndexError:
+    #         latest_pair = (0,0)
+
+    #     last_number = latest_pair[1]
+
+    # except DataError or DatabaseError or IndexError:
+    #     print("Something went wrong here at line 39")
+
+    # finding most recent number and hence the call number to use 
     try:
         retrieving_number_query = '''SELECT * FROM searches'''
-        raw_pair_list = list(dbcon.execute(retrieving_number_query))
-        raw_pair_list.sort(reverse=True)
+        raw_data = list(dbcon.execute(retrieving_number_query))
+        last_number = 0
+        for pair in raw_data:
+            last_number += 1
 
-        try:
-            latest_pair = raw_pair_list[0]
-        except IndexError:
-            latest_pair = (0,0)
-
-        last_number = latest_pair[1]
-
-    except DataError or DatabaseError or IndexError:
-        print("Something went wrong here at line 39")
-
+    except DatabaseError or DataError or IndexError:
+        last_number = 0
     
     # writing the search to the table
     try:
