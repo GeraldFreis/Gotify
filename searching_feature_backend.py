@@ -1,5 +1,6 @@
 """Library / Framework importing"""
 from tkinter.constants import LEFT
+import tkinter.ttk as ttk
 import urllib
 import sqlite3 as sql
 from sqlite3.dbapi2 import DataError, DatabaseError
@@ -77,3 +78,20 @@ def writing_search_to_db(search):
 
     except DatabaseError or DataError:
         print('n')
+
+def recent_song_combobox(main_window):
+
+    """Connection to database"""
+    dbcon = sql.connect(r'databases\recent_songs.db')
+
+    """Retrieving songs"""
+    retrieving_query = '''SELECT * FROM searches'''
+    all_info_list = set(dbcon.execute(retrieving_query))
+    song_list = all_info_list[0]
+    url_list = all_info_list[1]
+    print(url_list)
+
+    """Drawing the combobox"""
+    song_combobox = ttk.Combobox(master=main_window, values=song_list)
+
+
