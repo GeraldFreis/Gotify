@@ -9,7 +9,8 @@ import webbrowser as wb
 
 try:
     import mouse 
-except:
+
+except OSError:
     print("Error  in searching feature backend version")
 
 import time
@@ -18,18 +19,22 @@ import time
 
 """Modular imports"""
 from colours import deep_black, unhighlighted_text
+
 """Functions"""
 
 def mouse_funct():
-    mouse_pos = mouse.get_position()
-    video_pos = (150, 300)
+    try:
+        mouse_pos = mouse.get_position()
+        video_pos = (150, 300)
 
-    differencex = video_pos[0] - mouse_pos[0]
-    differencey = video_pos[1] - mouse_pos[1]
+        differencex = video_pos[0] - mouse_pos[0]
+        differencey = video_pos[1] - mouse_pos[1]
 
-    time.sleep(3.5)
-    mouse.move(video_pos[0], video_pos[1], absolute=True, duration=0.01)
-    mouse.click(button=LEFT)
+        time.sleep(3.5)
+        mouse.move(video_pos[0], video_pos[1], absolute=True, duration=0.01)
+        mouse.click(button=LEFT)
+    except NameError:
+        print("Problem in mouse_funct")
 
 def real_search(search):
     if search == '':
