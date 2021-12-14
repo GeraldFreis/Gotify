@@ -45,7 +45,7 @@ class Login:
 
         def returning_user_window():
             global username
-            self.dbcon = sql.connect(r"databases\user_list.db")
+            self.dbcon = sql.connect(r"databases/user_list.db")
             self.dbcursor = self.dbcon.cursor()
 
             def retrieving_user(name):
@@ -175,7 +175,7 @@ class Login:
             """Functions"""
             # adding the user to the database
             def adding_user(name):
-                self.dbcon = sql.connect(r"databases\user_list.db")
+                self.dbcon = sql.connect(r"databases/user_list.db")
                 self.dbcursor = self.dbcon.cursor()
                 try:
                     global username

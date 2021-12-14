@@ -15,7 +15,7 @@ class RecentSongs():
     def __init__(self):
 
         # database connection
-        self.dbcon = sql.connect(r"databases\recent_searches.db")
+        self.dbcon = sql.connect(r"databases/recent_searches.db")
 
     def displaying_songs(self):
 

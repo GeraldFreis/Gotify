@@ -62,7 +62,7 @@ class Searching:
         # Gotify Label and image
         try:
             # resizing image
-            self.spotify_icon_img = (Image.open(fp=r"images\spotify-logo.png"))
+            self.spotify_icon_img = (Image.open(fp=r"images/spotify-logo.png"))
             self.spotify_icon_img = self.spotify_icon_img.resize((440,325), Image.ANTIALIAS)
             self.spotify_icon_img = ImageTk.PhotoImage(master=self.main_search_window, image=self.spotify_icon_img)
         
