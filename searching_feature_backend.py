@@ -9,9 +9,8 @@ import webbrowser as wb
 
 try:
     import mouse 
-
-except OSError:
-    print("Does not work on mac os environment" + '\n')
+except:
+    print("Error  in searching feature backend version")
 
 import time
 
