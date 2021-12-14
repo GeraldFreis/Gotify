@@ -6,7 +6,13 @@ import sqlite3 as sql
 from sqlite3.dbapi2 import DataError, DatabaseError
 import tkinter as tk
 import webbrowser as wb
-import mouse 
+
+try:
+    import mouse 
+
+except OSError:
+    print("Does not work on mac os environment" + '\n')
+
 import time
 
 # from mouseinfo import PyAutoGui as pag

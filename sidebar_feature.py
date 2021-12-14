@@ -27,11 +27,11 @@ class SideBar():
 
         try:
             # setting up images
-            self.settings_icon_img = (Image.open(fp=r"images\settings_img.png"))
-            self.home_icon_img = (Image.open(fp=r"images\home_img.png"))
-            self.search_icon_img = (Image.open(fp=r"images\search_img.png"))
-            self.your_library_icon_img = (Image.open(fp=r"images\your_library_img.png"))
-            self.bar_icon_img = (Image.open(fp=r"images\bar_img.png"))
+            self.settings_icon_img = (Image.open(fp=r"images/settings_img.png"))
+            self.home_icon_img = (Image.open(fp=r"images/home_img.png"))
+            self.search_icon_img = (Image.open(fp=r"images/search_img.png"))
+            self.your_library_icon_img = (Image.open(fp=r"images/your_library_img.png"))
+            self.bar_icon_img = (Image.open(fp=r"images/bar_img.png"))
         
             # resizing images
             self.settings_icon_img_resized = self.settings_icon_img.resize((50, 20), Image.ANTIALIAS)
