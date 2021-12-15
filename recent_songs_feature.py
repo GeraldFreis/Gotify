@@ -97,5 +97,3 @@ class RecentSongs():
 def recent_songs_compiled():
     recentsongs = RecentSongs()
     recentsongs.displaying_songs()
-
-recent_songs_compiled()

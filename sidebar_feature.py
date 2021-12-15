@@ -154,6 +154,7 @@ class SideBar():
 
         self.liked_songs_button = tk.Button(master=self.frame_side,
         text="Liked Songs",
+        
         bg=deep_black,
         fg=unhighlighted_text,
         height=1, width=10,
@@ -168,7 +169,7 @@ class SideBar():
 
         self.recent_songs_button = tk.Button(master=self.frame_side,
         text="Recent Songs",
-        # command=recent_songs_compiled,
+        command=recent_songs_compiled,
         bg=deep_black,
         fg=unhighlighted_text,
         height=1, width=10,
