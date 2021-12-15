@@ -51,8 +51,7 @@ class RecentSongs():
 
             # gotify label frame
             gotify_frame = tk.Frame(master=self.main_recent_song_window,
-            bg=deep_black,
-            width=800, height=100).grid(row=0, column=1)
+            bg=deep_black).grid(row=0, column=1)
 
             # song display frame
             song_frame = tk.Frame(master=self.main_recent_song_window,
