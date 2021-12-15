@@ -17,6 +17,13 @@ class RecentSongs():
         # database connection
         self.dbcon = sql.connect(r"databases/recent_searches.db")
 
+
+        """Tkinter window"""
+        self.main_recent_song_window = tk.Tk()
+        self.main_recent_song_window.title("Recent Songs")
+        self.main_recent_song_window.config(bg=deep_black)
+        self.main_recent_song_window.geometry("1200x800+0+0")
+    
     def displaying_songs(self):
 
         """Functions"""
@@ -36,12 +43,6 @@ class RecentSongs():
         
         def widgets():
 
-            """Initialising the main widget"""
-            main_recent_song_window = tk.Tk()
-            main_recent_song_window.title("Recent Songs")
-            main_recent_song_window.config(bg=deep_black)
-            main_recent_song_window.geometry("1200x800+0+0")
-
             # fonts
             large_font = font.Font(family="Gothic Medium", size=100)
             small_font = font.Font(family="Gothic Medium", size=10)
@@ -49,24 +50,24 @@ class RecentSongs():
             """Frames"""
 
             # gotify label frame
-            gotify_frame = tk.Frame(master=main_recent_song_window,
+            gotify_frame = tk.Frame(master=self.main_recent_song_window,
             bg=deep_black,
             width=800, height=100).grid(row=0, column=1)
 
             # song display frame
-            song_frame = tk.Frame(master=main_recent_song_window,
+            song_frame = tk.Frame(master=self.main_recent_song_window,
             bg=deep_black,
             width=800, height=600).grid(row=2, column=1, rowspan=20)
 
             # centering frame
-            centering_frame = tk.Frame(master=main_recent_song_window,
+            centering_frame = tk.Frame(master=self.main_recent_song_window,
             bg=deep_black,
             width=200, height=0).grid(row=0, column=0, rowspan=20)
 
             """Main Labels"""
             
             # gotify label
-            gotify_label = tk.Label(master=gotify_frame,
+            gotify_label = tk.Label(master=self.main_recent_song_window,
             text="Gotify",
             font=large_font,
             bg=deep_black,
@@ -81,7 +82,7 @@ class RecentSongs():
                 def compiled_real_search():
                     real_search(search=song)
                 
-                song_label = tk.Button(master=song_frame,
+                song_label = tk.Button(master=self.main_recent_song_window,
                 bg=deep_black, fg=unhighlighted_text,
                 command=compiled_real_search,
                 text=song,
@@ -89,7 +90,7 @@ class RecentSongs():
 
                 beginning_row += 1
             
-            main_recent_song_window.mainloop()
+            self.main_recent_song_window.mainloop()
 
         widgets()
 
@@ -97,3 +98,5 @@ class RecentSongs():
 def recent_songs_compiled():
     recentsongs = RecentSongs()
     recentsongs.displaying_songs()
+
+# recent_songs_compiled()
