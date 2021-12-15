@@ -12,6 +12,7 @@ highlighted_text)
 
 from searching_feature_frontend import search_compiled
 from recent_songs_feature import recent_songs_compiled
+from home_feature import HomeFeature
 
 """Sidebar class"""
 
@@ -51,6 +52,14 @@ class SideBar():
         except FileExistsError or FileNotFoundError:
             print("Necessary files are not in directory")
 
+
+        """Command initialisation"""
+
+        # home command
+        def home_command():
+            home_feature = HomeFeature(mainwindow=window)
+            home_feature.constructing_widgets()
+
         """Settings button"""
         self.setting_button = tk.Button(master=self.frame_side,
          image=self.settings_icon_img,
@@ -67,6 +76,7 @@ class SideBar():
          fg=unhighlighted_text,
          activeforeground=highlighted_text,
          font=main_font,
+         command=home_command,
          height=1,
          width=10,
          border=0)
@@ -74,6 +84,7 @@ class SideBar():
         # home image
         self.home_icon = tk.Button(master=self.frame_side, 
         image=self.home_icon_img,
+        command=home_command,
         border=0,
         bg=deep_black)
         # bg=deep_black,
