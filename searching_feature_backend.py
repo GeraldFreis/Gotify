@@ -110,7 +110,7 @@ def writing_search_to_db(search):
 def recent_song_combobox(main_window):
 
     """Connection to database"""
-    dbcon = sql.connect(r'databases\recent_searches.db')
+    dbcon = sql.connect(r'databases/recent_searches.db')
 
     """Retrieving songs"""
     retrieving_query = '''SELECT * FROM searches'''

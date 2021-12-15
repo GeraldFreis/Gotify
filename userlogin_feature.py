@@ -317,8 +317,13 @@ class Login:
         command=developer)
 
         """Aesthetics"""
+        def spotify_button():
+            import webbrowser
+            webbrowser.open("https://github.com/GeraldFreis/Gotify")
+
         self.spotify_logo_icon = tk.Button(master=self.main_login_window,
         bg=deep_black,
+        command=spotify_button,
         image=self.spotify_icon_img,
         border=0,
         height=325,
