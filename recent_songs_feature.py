@@ -22,7 +22,7 @@ class RecentSongs():
         self.main_recent_song_window = tk.Tk()
         self.main_recent_song_window.title("Recent Songs")
         self.main_recent_song_window.config(bg=deep_black)
-        self.main_recent_song_window.geometry("1200x800+0+0")
+        self.main_recent_song_window.geometry("990x700+210+0")
     
     def displaying_songs(self):
 
@@ -61,7 +61,7 @@ class RecentSongs():
             # centering frame
             centering_frame = tk.Frame(master=self.main_recent_song_window,
             bg=deep_black,
-            width=200, height=0).grid(row=0, column=0, rowspan=20)
+            width=100, height=0).grid(row=0, column=0, rowspan=20)
 
             """Main Labels"""
             

@@ -7,7 +7,10 @@ import sqlite3 as sql
 
 """Modular imports"""
 from colours import deep_black, unhighlighted_text
-from searching_feature_backend import real_search
+try:
+    from searching_feature_backend import real_search
+except:
+    pass
 
 """Liked Song Class"""
 
@@ -139,7 +142,37 @@ class LikedSongs():
         self.main_window.mainloop()
 
 
-    
+class LikedSongsScreen():
+    def __init__(self):
+        self.dbcon = sql.connect("databases/liked_songs.db")
+        
+        """Setting up the main interface"""
+        self.main_window = tk.Tk()
+        self.main_window.config(bg=deep_black)
+        self.main_window.geometry("990x700+210+0")
+        self.main_window.title("Liked Songs")
+
+        """Fonts"""
+        self.large_font = font.Font(family="Gothic Medium", size=40)
+        self.medium_font = font.Font(family="Gothic Medium", size=20)
+        self.small_font = font.Font(family="Gothic Medium", size=10)
+
+    """Creating the widgets to be applied onto the screen"""
+    def create_widgets(self):
+
+        # retrieving a list of liked songs
+        def retrieving_songs():
+            retreiving_query = '''SELECT * FROM songs'''
+            retrieved_list = list(self.dbcon.execute(retreiving_query))
+            return retrieved_list
+        
+        self.gotify_label = tk.Label(master=self.main_window,
+        text="Gotify",
+        font=self.large_font,
+        anchor='center').grid(row=0, column=0)
+
+liked_songs_screen = LikedSongsScreen()
+liked_songs_screen.create_widgets()
 
 # likedsong = LikedSongs('hi')
 # likedsong.creating_question_tab()
