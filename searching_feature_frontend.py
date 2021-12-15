@@ -26,7 +26,7 @@ class Searching:
 
         """Making the screen to search"""
         self.main_search_window = tk.Tk()
-        self.main_search_window.geometry("1200x800+0+0")
+        self.main_search_window.geometry("990x700+210+0")
         self.main_search_window.title("Search for a song or album")
         self.main_search_window.config(bg=deep_black)
 
@@ -52,7 +52,7 @@ class Searching:
         main_font = font.Font(family="Gothic Medium", size=40)
         new_main_font = font.Font(family="Gothic Medium", size=100)
 
-        self.frame_to_center = tk.Frame(master=self.main_search_window, bg=deep_black, width=400, height=50, border=0)
+        self.frame_to_center = tk.Frame(master=self.main_search_window, bg=deep_black, width=150, height=50, border=0)
         
         # frame for labels
         
