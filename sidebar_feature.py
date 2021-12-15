@@ -13,6 +13,7 @@ highlighted_text)
 from searching_feature_frontend import search_compiled
 from recent_songs_feature import recent_songs_compiled
 from home_feature import HomeFeature
+from liked_songs_feature import liked_songs_screen_compiled
 
 """Sidebar class"""
 
@@ -154,7 +155,7 @@ class SideBar():
 
         self.liked_songs_button = tk.Button(master=self.frame_side,
         text="Liked Songs",
-        
+        command=liked_songs_screen_compiled,
         bg=deep_black,
         fg=unhighlighted_text,
         height=1, width=10,

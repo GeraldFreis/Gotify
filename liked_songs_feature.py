@@ -142,6 +142,9 @@ class LikedSongs():
         self.main_window.mainloop()
 
 
+# likedsong = LikedSongs('hi')
+# likedsong.creating_question_tab()
+
 class LikedSongsScreen():
     def __init__(self):
         self.dbcon = sql.connect("databases/liked_songs.db")
@@ -162,17 +165,58 @@ class LikedSongsScreen():
 
         # retrieving a list of liked songs
         def retrieving_songs():
-            retreiving_query = '''SELECT * FROM songs'''
+            retreiving_query = '''SELECT * FROM likedsongs'''
             retrieved_list = list(self.dbcon.execute(retreiving_query))
             return retrieved_list
         
+        # creating the widgets
+        self.centering_frame = tk.Frame(master=self.main_window,
+        bg=deep_black, width=400).grid(row=0, column=0)
+
         self.gotify_label = tk.Label(master=self.main_window,
         text="Gotify",
         font=self.large_font,
-        anchor='center').grid(row=0, column=0)
+        bg=deep_black,
+        fg=unhighlighted_text,
+        activeforeground=deep_black,
+        anchor='center')
 
-liked_songs_screen = LikedSongsScreen()
-liked_songs_screen.create_widgets()
+        self.songs = retrieving_songs()
+        self.songs_list = list()
+        for song in self.songs:
+            self.songs_list.append(song[0])
 
-# likedsong = LikedSongs('hi')
-# likedsong.creating_question_tab()
+        # self.main_window.mainloop()
+    
+    def apply(self):
+        self.gotify_label.grid(row=0, column=2)
+        
+        """Creating the liked_songs distribution"""
+        rowcount = 1
+        columncount = 1
+        for song in self.songs_list:
+
+            columncount += 1
+
+            if rowcount <= 30:
+
+                if columncount <= 3:
+                    lbl = tk.Button(master=self.main_window,
+                    text=song,
+                    height=3, width=5).grid(
+                        row=rowcount, column=columncount, padx=2, pady=2)
+                
+                elif columncount == 4:
+                    columncount = 0
+                    rowcount += 1
+            else:
+                pass
+
+        self.main_window.mainloop()
+
+
+
+def liked_songs_screen_compiled():
+    liked_songs_screen = LikedSongsScreen()
+    liked_songs_screen.create_widgets()
+    liked_songs_screen.apply()
