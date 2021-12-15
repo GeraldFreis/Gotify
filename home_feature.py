@@ -33,5 +33,7 @@ class HomeFeature():
             self.recent_searches_button.grid(row=6, column=8, rowspan=2, columnspan=2)
             self.search_button.grid(row=9, column=5, rowspan=2, columnspan=2)
 
+        apply()
+        
 def homefeature_compiled():
     home_feature = HomeFeature()
