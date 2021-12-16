@@ -24,7 +24,7 @@ from PIL import Image, ImageTk
 """Modular imports"""
 from colours import deep_black, unhighlighted_text
 from spotify_logo_feature import spotify_button
-
+from searching_feature_backend import real_search, writing_search_to_db
 
 """Standalone functions"""
 def creating_playlist_table(name: str):  # creating the new_playlists
@@ -34,10 +34,60 @@ def creating_playlist_table(name: str):  # creating the new_playlists
 
     try:
         dbcon.execute(query)
+
     except OperationalError:
         print("Table exists try a different name")
 
     dbcon.commit()
+
+def adding_songs_to_playlist():
+
+    """Setting up the window that will contain recent songs, liked songs and searchbar"""
+    new_window = tk.Tk()
+    new_window.geometry("990x700+210+0")
+    new_window.title("Adding Songs")
+    new_window.config(bg=deep_black)
+
+    # fonts
+    large_font = font.Font(family="Gothic Medium", size=40)
+
+
+    """Title Labels and components"""
+
+    # liked songs
+    liked_songs_title = tk.Label(master=new_window,
+    text="Liked Songs", font=large_font,
+    bg=deep_black, fg=unhighlighted_text,
+    border=0, width=35).grid(row=1, column=0)
+
+    # recent songs
+    recent_songs_title = tk.Label(master=new_window,
+    text="Recent Songs", font=large_font,
+    bg=deep_black, fg=unhighlighted_text,
+    border=0, width=35).grid(row=1, column=3)
+
+    # search bar
+    search_bar = tk.Label(master=new_window,
+    text="Search", font=large_font,
+    width=35,
+    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=1, column=1)
+
+    search_entry_text = tk.StringVar()
+    search_entry_field = tk.Entry(master=new_window,
+    textvariable=search_bar).grid(row=2, column=1, columnspan=2)
+
+    def search_enter_command():
+
+        search = search_entry_text.get()
+        real_search(search=search)
+        writing_search_to_db(search=search)
+    
+    search_enter_button = tk.Button(master=new_window,
+    command=search_enter_command,
+    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=2, column=3)
+
+    new_window.mainloop()
+    
 
 
 """Creating playlist feature"""
@@ -129,6 +179,12 @@ class CreatingPlaylist():
         fg=unhighlighted_text,
         border=0, width=20)
 
+        """Other widgets"""
+        # adding songs feature
+        self.adding_songs_button = tk.Button(master=self.main_window,
+        bg=deep_black, fg=unhighlighted_text, text="Add Songs",
+        command=adding_songs_to_playlist, border=0)
+
     
     def applying_widgets(self):
 
@@ -143,6 +199,9 @@ class CreatingPlaylist():
         self.songname_title.grid(row=2, column=1)
         self.author_title.grid(row=2, column=2)
         self.duration_title.grid(row=2, column=3)
+
+        # other widgets
+        self.adding_songs_button.grid(row=3, rowspan=7, column=0)
 
         # screen
         self.main_window.mainloop()
