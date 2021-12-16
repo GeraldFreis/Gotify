@@ -40,6 +40,19 @@ def creating_playlist_table(name: str):  # creating the new_playlists
 
     dbcon.commit()
 
+def list_of_songs(filename, tablename):
+    dbcon = sql.connect(filename)
+
+    query = '''SELECT * FROM {}'''.format(tablename)
+    execute = list(dbcon.execute(query))
+    song_list = list()
+
+    for row in execute:
+        song_list.append(row[0])
+
+    return song_list
+
+
 def adding_songs_to_playlist():
 
     """Setting up the window that will contain recent songs, liked songs and searchbar"""
@@ -60,11 +73,35 @@ def adding_songs_to_playlist():
     bg=deep_black, fg=unhighlighted_text,
     border=0, width=35).grid(row=1, column=0)
 
+    #   components
+    liked_songs_list = list_of_songs(filename="databases/liked_songs.db", tablename="likedsongs")
+    
+    rowcount = 3
+
+    for song in liked_songs_list:
+        song_button = tk.Button(master=new_window,
+        text=song,
+        bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=rowcount, column=0)
+        rowcount += 1
+
     # recent songs
     recent_songs_title = tk.Label(master=new_window,
     text="Recent Songs", font=large_font,
     bg=deep_black, fg=unhighlighted_text,
     border=0, width=35).grid(row=1, column=3)
+
+    #   components
+    recent_songs_list = list_of_songs(filename="databases/recent_searches.db", tablename="searches")
+    recent_songs_rowcount = 3
+
+    for song in recent_songs_list:
+        song_button = tk.Button(master=new_window,
+        text=song,
+        bg=deep_black,
+        fg=unhighlighted_text,
+        border=0).grid(row=recent_songs_rowcount, column=3)
+        recent_songs_rowcount += 1
 
     # search bar
     search_bar = tk.Label(master=new_window,
@@ -84,7 +121,7 @@ def adding_songs_to_playlist():
     
     search_enter_button = tk.Button(master=new_window,
     command=search_enter_command,
-    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=2, column=3)
+    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=2, column=3)    
 
     new_window.mainloop()
     
