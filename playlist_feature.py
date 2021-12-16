@@ -130,8 +130,7 @@ def adding_songs_to_playlist(mainwin):
     # search bar
     search_bar = tk.Label(master=new_window,
     text="Search", font=large_font,
-    width=35,
-    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=1, column=1)
+    width=35, bg=deep_black, fg=unhighlighted_text, border=0).grid(row=1, column=1)
 
     search_entry_text = tk.StringVar()
     search_entry_field = tk.Entry(master=new_window,
