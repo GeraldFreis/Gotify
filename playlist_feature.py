@@ -26,7 +26,10 @@ from colours import deep_black, unhighlighted_text
 from spotify_logo_feature import spotify_button
 from searching_feature_backend import real_search, writing_search_to_db
 
+
 """Standalone functions"""
+
+
 def creating_playlist_table(name: str):  # creating the new_playlists
 
     dbcon = sql.connect("databases/playlists.db")
@@ -39,6 +42,7 @@ def creating_playlist_table(name: str):  # creating the new_playlists
         print("Table exists try a different name")
 
     dbcon.commit()
+
 
 def list_of_songs(filename, tablename):
     dbcon = sql.connect(filename)
@@ -53,13 +57,21 @@ def list_of_songs(filename, tablename):
     return song_list
 
 
-def adding_songs_to_playlist():
+def add_song_to_playlist(songtoadd, mainwin):
+    songs = tk.Button(master=mainwin,
+    text=songtoadd, bg=deep_black, fg=unhighlighted_text,
+    border=0).grid(row=4, column=1)
+
+
+def adding_songs_to_playlist(mainwin):
 
     """Setting up the window that will contain recent songs, liked songs and searchbar"""
     new_window = tk.Tk()
     new_window.geometry("990x700+210+0")
     new_window.title("Adding Songs")
     new_window.config(bg=deep_black)
+
+    mainwindow=mainwin
 
     # fonts
     large_font = font.Font(family="Gothic Medium", size=40)
@@ -79,10 +91,16 @@ def adding_songs_to_playlist():
     rowcount = 3
 
     for song in liked_songs_list:
+
+        def quickfix():
+            add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+
         song_button = tk.Button(master=new_window,
         text=song,
+        command=quickfix,
         bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=rowcount, column=0)
+
         rowcount += 1
 
     # recent songs
@@ -96,11 +114,17 @@ def adding_songs_to_playlist():
     recent_songs_rowcount = 3
 
     for song in recent_songs_list:
+
+        def quickfix():
+            add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+
         song_button = tk.Button(master=new_window,
         text=song,
         bg=deep_black,
+        command=quickfix,
         fg=unhighlighted_text,
         border=0).grid(row=recent_songs_rowcount, column=3)
+
         recent_songs_rowcount += 1
 
     # search bar
@@ -218,9 +242,12 @@ class CreatingPlaylist():
 
         """Other widgets"""
         # adding songs feature
+        def quickfix():
+            adding_songs_to_playlist(mainwin=self.main_window)
+
         self.adding_songs_button = tk.Button(master=self.main_window,
         bg=deep_black, fg=unhighlighted_text, text="Add Songs",
-        command=adding_songs_to_playlist, border=0)
+        command=quickfix, border=0)
 
     
     def applying_widgets(self):
