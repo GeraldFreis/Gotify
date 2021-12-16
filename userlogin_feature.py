@@ -9,7 +9,7 @@ from PIL import Image, ImageTk
 """Modular imports"""
 from colours import (deep_black, 
 unhighlighted_text)
-
+from spotify_logo_feature import spotify_button
 
 """Globals"""
 login_conditional_test = True
@@ -317,10 +317,6 @@ class Login:
         command=developer)
 
         """Aesthetics"""
-        def spotify_button():
-            import webbrowser
-            webbrowser.open("https://github.com/GeraldFreis/Gotify")
-
         self.spotify_logo_icon = tk.Button(master=self.main_login_window,
         bg=deep_black,
         command=spotify_button,
