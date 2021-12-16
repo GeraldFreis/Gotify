@@ -104,7 +104,8 @@ class CreatingPlaylist():
         bg=deep_black,
         fg=unhighlighted_text,
         border=0,
-        command=applying_playlist_name)
+        command=applying_playlist_name,
+        anchor='w')
 
         """Title bar things"""
         # songs 
@@ -112,21 +113,21 @@ class CreatingPlaylist():
         text="Song Name",
         bg=deep_black,
         fg=unhighlighted_text,
-        border=0)
+        border=0, width=20)
 
         # author
         self.author_title = tk.Label(master=self.main_window,
         text="Author",
         bg=deep_black,
         fg=unhighlighted_text,
-        border=0)
+        border=0, width=20)
 
         # duration
         self.duration_title = tk.Label(master=self.main_window,
         text="Duration",
         bg=deep_black,
         fg=unhighlighted_text,
-        border=0)
+        border=0, width=20)
 
     
     def applying_widgets(self):
@@ -137,12 +138,12 @@ class CreatingPlaylist():
 
         # applying the entry field
         self.entry_field.grid(row=0, column=1, columnspan=3)
-        self.enter_button.grid(row=0, column=4)
+        self.enter_button.grid(row=0, column=3)
 
         # titlebar
-        self.songname_title.grid(row=2, column=1, padx=20)
-        self.author_title.grid(row=2, column=2, padx=20)
-        self.duration_title.grid(row=2, column=3, padx=20)
+        self.songname_title.grid(row=2, column=1)
+        self.author_title.grid(row=2, column=2)
+        self.duration_title.grid(row=2, column=3)
 
         # screen
         self.main_window.mainloop()
