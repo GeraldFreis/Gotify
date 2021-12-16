@@ -134,7 +134,6 @@ class CreatingPlaylist():
 
         # applying gotify image
         self.gotify_image.grid(row=0, column=0, padx=20)
-        # self.gotify_label.grid(row=0, column=1)
 
         # applying the entry field
         self.entry_field.grid(row=0, column=1, columnspan=3)
