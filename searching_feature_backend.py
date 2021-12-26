@@ -11,7 +11,7 @@ try:
     import mouse 
 
 except OSError:
-    print("Error  in searching feature backend version")
+    pass
 
 import time
 
@@ -33,7 +33,9 @@ def mouse_funct():
         time.sleep(3.5)
         mouse.move(video_pos[0], video_pos[1], absolute=True, duration=0.01)
         mouse.click(button=LEFT)
+
     except NameError:
+        
         print("Problem in mouse_funct")
 
 def real_search(search):
