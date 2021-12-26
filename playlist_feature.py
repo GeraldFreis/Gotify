@@ -71,7 +71,7 @@ def adding_songs_to_playlist(mainwin):
     new_window.title("Adding Songs")
     new_window.config(bg=deep_black)
 
-    mainwindow=mainwin
+    mainwindow = mainwin
 
     # fonts
     large_font = font.Font(family="Gothic Medium", size=40)
@@ -90,18 +90,168 @@ def adding_songs_to_playlist(mainwin):
     
     rowcount = 3
 
-    for song in liked_songs_list:
+    # for song in liked_songs_list:
 
-        def quickfix():
-            add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+    #     def quickfix():
+    #         add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
 
-        song_button = tk.Button(master=new_window,
-        text=song,
-        command=quickfix,
-        bg=deep_black, fg=unhighlighted_text,
-        border=0).grid(row=rowcount, column=0)
+    #     song_button = tk.Button(master=new_window,
+    #     text=song,
+    #     command=quickfix,
+    #     bg=deep_black, fg=unhighlighted_text,
+    #     border=0).grid(row=rowcount, column=0)
 
-        rowcount += 1
+        # rowcount += 1
+    
+    
+    liked_song_1_name = liked_songs_list[0]
+    liked_song_2_name = liked_songs_list[1]
+    liked_song_3_name = liked_songs_list[2]
+    liked_song_4_name = liked_songs_list[3]
+    liked_song_5_name = liked_songs_list[4]
+    liked_song_6_name = liked_songs_list[5]
+    liked_song_7_name = liked_songs_list[6]
+    liked_song_8_name = liked_songs_list[7]
+    liked_song_9_name = liked_songs_list[8]
+    liked_song_10_name = liked_songs_list[9]
+    liked_song_11_name = liked_songs_list[10]
+    liked_song_12_name = liked_songs_list[11]
+    liked_song_13_name = liked_songs_list[12]
+    liked_song_14_name = liked_songs_list[13]
+    liked_song_15_name = liked_songs_list[14]
+    liked_song_16_name = liked_songs_list[15]
+    liked_song_17_name = liked_songs_list[16]
+    liked_song_18_name = liked_songs_list[17]
+    liked_song_19_name = liked_songs_list[18]
+    liked_song_20_name = liked_songs_list[19]
+
+    '''Commands for the buttons'''
+    def fixforbutton_1():
+        song_1 = tk.Button(master=mainwindow,
+        text=liked_song_1_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=4, column=1)
+
+    def fixforbutton_2():
+        song_2 = tk.Button(master=mainwindow,
+        text=liked_song_2_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=5, column=1)
+    
+    def fixforbutton_3():
+        song_3 = tk.Button(master=mainwindow,
+        text=liked_song_3_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=6, column=1)
+    
+    def fixforbutton_4():
+        song_4 = tk.Button(master=mainwindow,
+        text=liked_song_4_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=7, column=1)
+    
+    def fixforbutton_5():
+        song_5 = tk.Button(master=mainwindow,
+        text=liked_song_5_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=8, column=1)
+    
+    def fixforbutton_6():
+        song_6 = tk.Button(master=mainwindow,
+        text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=9, column=1)
+    
+    def fixforbutton_7():
+        song_7 = tk.Button(master=mainwindow,
+        text=liked_song_7_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=10, column=1)
+    
+    def fixforbutton_8():
+        song_8 = tk.Button(master=mainwindow,
+        text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=11, column=1)
+    
+    def fixforbutton_9():
+        song_9 = tk.Button(master=mainwindow,
+        text=liked_song_9_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=12, column=1)
+    
+    def fixforbutton_10():
+        song_10 = tk.Button(master=mainwindow,
+        text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=13, column=1)
+    
+    def fixforbutton_11():
+        song_11 = tk.Button(master=mainwindow,
+        text=liked_song_11_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=14, column=1)
+    
+    def fixforbutton_12():
+        song_12 = tk.Button(master=mainwindow,
+        text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=15, column=1)
+    
+    def fixforbutton_13():
+        song_13 = tk.Button(master=mainwindow,
+        text=liked_song_13_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=16, column=1)
+    
+    def fixforbutton_14():
+        song_14 = tk.Button(master=mainwindow,
+        text=liked_song_14_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=17, column=1)
+    
+    def fixforbutton_15():
+        song_15 = tk.Button(master=mainwindow,
+        text=liked_song_15_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=18, column=1)
+    
+    def fixforbutton_16():
+        song_16 = tk.Button(master=mainwindow,
+        text=liked_song_16_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=19, column=1)
+    
+    def fixforbutton_17():
+        song_17 = tk.Button(master=mainwindow,
+        text=liked_song_17_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=20, column=1)
+    
+    def fixforbutton_18():
+        song_18 = tk.Button(master=mainwindow,
+        text=liked_song_18_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=21, column=1)
+    
+    def fixforbutton_19():
+        song_19 = tk.Button(master=mainwindow,
+        text=liked_song_19_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=22, column=1)
+    
+    def fixforbutton_20():
+        song_20 = tk.Button(master=mainwindow,
+        text=liked_song_20_name, bg=deep_black, fg=unhighlighted_text,
+        border=0).grid(row=23, column=1)
+
+
+    liked_song_1 = tk.Button(master=new_window, text=liked_song_1_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_1).grid(row=3, column=0)
+    liked_song_2 = tk.Button(master=new_window, text=liked_song_2_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_2).grid(row=4, column=0)
+    liked_song_3 = tk.Button(master=new_window, text=liked_song_3_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_3).grid(row=5, column=0)
+    liked_song_4 = tk.Button(master=new_window, text=liked_song_4_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_4).grid(row=6, column=0)
+    liked_song_5 = tk.Button(master=new_window, text=liked_song_5_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_5).grid(row=7, column=0)
+    liked_song_6 = tk.Button(master=new_window, text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_6).grid(row=8, column=0)
+    liked_song_7 = tk.Button(master=new_window, text=liked_song_7_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_7).grid(row=9, column=0)
+    liked_song_8 = tk.Button(master=new_window, text=liked_song_8_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_8).grid(row=10, column=0)
+    liked_song_9 = tk.Button(master=new_window, text=liked_song_9_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_9).grid(row=11, column=0)
+    liked_song_10 = tk.Button(master=new_window, text=liked_song_10_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_10).grid(row=12, column=0)
+    liked_song_11 = tk.Button(master=new_window, text=liked_song_11_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_11).grid(row=13, column=0)
+    liked_song_12 = tk.Button(master=new_window, text=liked_song_12_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_12).grid(row=14, column=0)
+    liked_song_13 = tk.Button(master=new_window, text=liked_song_13_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_13).grid(row=15, column=0)
+    liked_song_14 = tk.Button(master=new_window, text=liked_song_14_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_14).grid(row=16, column=0)
+    liked_song_15 = tk.Button(master=new_window, text=liked_song_15_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_15).grid(row=17, column=0)
+    liked_song_16 = tk.Button(master=new_window, text=liked_song_16_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_16).grid(row=18, column=0)
+    liked_song_17 = tk.Button(master=new_window, text=liked_song_17_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_17).grid(row=19, column=0)
+    liked_song_18 = tk.Button(master=new_window, text=liked_song_18_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_18).grid(row=20, column=0)
+    liked_song_19 = tk.Button(master=new_window, text=liked_song_19_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_19).grid(row=21, column=0)
+    liked_song_20 = tk.Button(master=new_window, text=liked_song_20_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_20).grid(row=22, column=0)
+
+
+
+
+
 
     # recent songs
     recent_songs_title = tk.Label(master=new_window,
@@ -111,21 +261,176 @@ def adding_songs_to_playlist(mainwin):
 
     #   components
     recent_songs_list = list_of_songs(filename="databases/recent_searches.db", tablename="searches")
-    recent_songs_rowcount = 3
+    try:
+        recent_song_1_name = recent_songs_list[0]
+        recent_song_2_name = recent_songs_list[1]
+        recent_song_3_name = recent_songs_list[2]
+        recent_song_4_name = recent_songs_list[3]
+        recent_song_5_name = recent_songs_list[4]
+        recent_song_6_name = recent_songs_list[5]
+        recent_song_7_name = recent_songs_list[6]
+        recent_song_8_name = recent_songs_list[7]
+        recent_song_9_name = recent_songs_list[8]
+        recent_song_10_name = recent_songs_list[9]
+        recent_song_11_name = recent_songs_list[10]
+        recent_song_12_name = recent_songs_list[11]
+        recent_song_13_name = recent_songs_list[12]
+        recent_song_14_name = recent_songs_list[13]
+        recent_song_15_name = recent_songs_list[14]
+        recent_song_16_name = recent_songs_list[15]
+        recent_song_17_name = recent_songs_list[16]
+        recent_song_18_name = recent_songs_list[17]
+        recent_song_19_name = recent_songs_list[18]
+        recent_song_20_name = recent_songs_list[19]
 
-    for song in recent_songs_list:
+    except IndexError:
+        pass
+    
+    try:
+        '''Commands for the buttons'''
+        def fixforrecentbutton_1():
+            song_1 = tk.Button(master=mainwindow,
+            text=recent_song_1_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=4, column=1)
 
-        def quickfix():
-            add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+        def fixforrecentbutton_2():
+            song_2 = tk.Button(master=mainwindow,
+            text=recent_song_2_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=5, column=1)
+        
+        def fixforrecentbutton_3():
+            song_3 = tk.Button(master=mainwindow,
+            text=recent_song_3_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=6, column=1)
+        
+        def fixforrecentbutton_4():
+            song_4 = tk.Button(master=mainwindow,
+            text=recent_song_4_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=7, column=1)
+        
+        def fixforrecentbutton_5():
+            song_5 = tk.Button(master=mainwindow,
+            text=recent_song_5_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=8, column=1)
+        
+        def fixforrecentbutton_6():
+            song_6 = tk.Button(master=mainwindow,
+            text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=9, column=1)
+        
+        def fixforrecentbutton_7():
+            song_7 = tk.Button(master=mainwindow,
+            text=recent_song_7_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=10, column=1)
+        
+        def fixforrecentbutton_8():
+            song_8 = tk.Button(master=mainwindow,
+            text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=11, column=1)
+        
+        def fixforrecentbutton_9():
+            song_9 = tk.Button(master=mainwindow,
+            text=recent_song_9_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=12, column=1)
+        
+        def fixforrecentbutton_10():
+            song_10 = tk.Button(master=mainwindow,
+            text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=13, column=1)
+        
+        def fixforrecentbutton_11():
+            song_11 = tk.Button(master=mainwindow,
+            text=recent_song_11_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=14, column=1)
+        
+        def fixforrecentbutton_12():
+            song_12 = tk.Button(master=mainwindow,
+            text=recent_song_12_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=15, column=1)
+        
+        def fixforrecentbutton_13():
+            song_13 = tk.Button(master=mainwindow,
+            text=recent_song_13_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=16, column=1)
+        
+        def fixforrecentbutton_14():
+            song_14 = tk.Button(master=mainwindow,
+            text=recent_song_14_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=17, column=1)
+        
+        def fixforrecentbutton_15():
+            song_15 = tk.Button(master=mainwindow,
+            text=recent_song_15_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=18, column=1)
+        
+        def fixforrecentbutton_16():
+            song_16 = tk.Button(master=mainwindow,
+            text=recent_song_16_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=19, column=1)
+        
+        def fixforrecentbutton_17():
+            song_17 = tk.Button(master=mainwindow,
+            text=recent_song_17_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=20, column=1)
+        
+        def fixforrecentbutton_18():
+            song_18 = tk.Button(master=mainwindow,
+            text=recent_song_18_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=21, column=1)
+        
+        def fixforrecentbutton_19():
+            song_19 = tk.Button(master=mainwindow,
+            text=recent_song_19_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=22, column=1)
+        
+        def fixforrecentbutton_20():
+            song_20 = tk.Button(master=mainwindow,
+            text=recent_song_20_name, bg=deep_black, fg=unhighlighted_text,
+            border=0).grid(row=23, column=1)
 
-        song_button = tk.Button(master=new_window,
-        text=song,
-        bg=deep_black,
-        command=quickfix,
-        fg=unhighlighted_text,
-        border=0).grid(row=recent_songs_rowcount, column=3)
+    except UnboundLocalError:
+        pass
+    
+    try:
+        recent_song_1 = tk.Button(master=new_window, text=recent_song_1_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_1).grid(row=3, column=3)
+        recent_song_2 = tk.Button(master=new_window, text=recent_song_2_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_2).grid(row=4, column=3)
+        recent_song_3 = tk.Button(master=new_window, text=recent_song_3_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_3).grid(row=5, column=3)
+        recent_song_4 = tk.Button(master=new_window, text=recent_song_4_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_4).grid(row=6, column=3)
+        recent_song_5 = tk.Button(master=new_window, text=recent_song_5_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_5).grid(row=7, column=3)
+        recent_song_6 = tk.Button(master=new_window, text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_6).grid(row=8, column=3)
+        recent_song_7 = tk.Button(master=new_window, text=recent_song_7_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_7).grid(row=9, column=3)
+        recent_song_8 = tk.Button(master=new_window, text=recent_song_8_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_8).grid(row=10, column=3)
+        recent_song_9 = tk.Button(master=new_window, text=recent_song_9_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_9).grid(row=11, column=3)
+        recent_song_10 = tk.Button(master=new_window, text=recent_song_10_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_10).grid(row=12, column=3)
+        recent_song_11 = tk.Button(master=new_window, text=recent_song_11_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_11).grid(row=13, column=3)
+        recent_song_12 = tk.Button(master=new_window, text=recent_song_12_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_12).grid(row=14, column=3)
+        recent_song_13 = tk.Button(master=new_window, text=recent_song_13_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_13).grid(row=15, column=3)
+        recent_song_14 = tk.Button(master=new_window, text=recent_song_14_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_14).grid(row=16, column=3)
+        recent_song_15 = tk.Button(master=new_window, text=recent_song_15_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_15).grid(row=17, column=3)
+        recent_song_16 = tk.Button(master=new_window, text=recent_song_16_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_16).grid(row=18, column=3)
+        recent_song_17 = tk.Button(master=new_window, text=recent_song_17_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_17).grid(row=19, column=3)
+        recent_song_18 = tk.Button(master=new_window, text=recent_song_18_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_18).grid(row=20, column=3)
+        recent_song_19 = tk.Button(master=new_window, text=recent_song_19_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_19).grid(row=21, column=3)
+        recent_song_20 = tk.Button(master=new_window, text=recent_song_20_name, bg=deep_black, fg=unhighlighted_text, command=fixforrecentbutton_20).grid(row=22, column=3)
+    
+    except UnboundLocalError:
+        pass
 
-        recent_songs_rowcount += 1
+    # recent_songs_rowcount = 3
+
+    # for song in recent_songs_list:
+
+    #     def quickfix():
+    #         add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+
+    #     song_button = tk.Button(master=new_window,
+    #     text=song,
+    #     bg=deep_black,
+    #     command=quickfix,
+    #     fg=unhighlighted_text,
+    #     border=0).grid(row=recent_songs_rowcount, column=3)
+
+    #     recent_songs_rowcount += 1
 
     # search bar
     search_bar = tk.Label(master=new_window,
