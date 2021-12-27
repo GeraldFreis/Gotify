@@ -26,6 +26,8 @@ from colours import deep_black, unhighlighted_text
 from spotify_logo_feature import spotify_button
 from searching_feature_backend import real_search, writing_search_to_db
 
+"""Globals"""
+search = str()
 
 """Standalone functions"""
 
@@ -43,6 +45,12 @@ def creating_playlist_table(name: str):  # creating the new_playlists
 
     dbcon.commit()
 
+def writing_to_playlist_database(tablename, songname, songauthor, songduration):
+    dbcon = sql.connect("databases/playlists.db")
+    data = (songname, songauthor, songduration)
+    query = '''INSERT INTO {} VALUES (?, ?, ?)'''.format(tablename)
+    dbcon.execute(query, data)
+    dbcon.commit()
 
 def list_of_songs(filename, tablename):
     dbcon = sql.connect(filename)
@@ -76,6 +84,40 @@ def adding_songs_to_playlist(mainwin):
     # fonts
     large_font = font.Font(family="Gothic Medium", size=40)
 
+    # recent_songs_rowcount = 3
+
+    # for song in recent_songs_list:
+
+    #     def quickfix():
+    #         add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
+
+    #     song_button = tk.Button(master=new_window,
+    #     text=song,
+    #     bg=deep_black,
+    #     command=quickfix,
+    #     fg=unhighlighted_text,
+    #     border=0).grid(row=recent_songs_rowcount, column=3)
+
+    #     recent_songs_rowcount += 1
+
+    # search bar
+    search_bar = tk.Label(master=new_window,
+    text="Search", font=large_font,
+    width=35, bg=deep_black, fg=unhighlighted_text, border=0).grid(row=1, column=1)
+
+    search_entry_text = tk.StringVar()
+    search_entry_field = tk.Entry(master=new_window,
+    textvariable=search_bar).grid(row=2, column=1, columnspan=2)
+
+    def search_enter_command():
+        global search
+        search = search_entry_text.get()
+        real_search(search=search)
+        writing_search_to_db(search=search)
+    
+    search_enter_button = tk.Button(master=new_window,
+    command=search_enter_command,
+    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=2, column=3)    
 
     """Title Labels and components"""
 
@@ -131,100 +173,143 @@ def adding_songs_to_playlist(mainwin):
         text=liked_song_1_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=4, column=1)
 
+        song_author = 'hello'
+        song_duration = 'he'
+        writing_to_playlist_database(tablename=search, songname=liked_song_1_name, songauthor=song_author, songduration=song_duration)
+
     def fixforbutton_2():
         song_2 = tk.Button(master=mainwindow,
         text=liked_song_2_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=5, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_2_name, songauthor='', songduration='')
+
     
     def fixforbutton_3():
         song_3 = tk.Button(master=mainwindow,
         text=liked_song_3_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=6, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_3_name, songauthor='', songduration='')
     
     def fixforbutton_4():
         song_4 = tk.Button(master=mainwindow,
         text=liked_song_4_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=7, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_4_name, songauthor='', songduration='')
     
     def fixforbutton_5():
         song_5 = tk.Button(master=mainwindow,
         text=liked_song_5_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=8, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_5_name, songauthor='', songduration='')
     
     def fixforbutton_6():
         song_6 = tk.Button(master=mainwindow,
         text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=9, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_6_name, songauthor='', songduration='')
     
     def fixforbutton_7():
         song_7 = tk.Button(master=mainwindow,
         text=liked_song_7_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=10, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_7_name, songauthor='', songduration='')
     
     def fixforbutton_8():
         song_8 = tk.Button(master=mainwindow,
-        text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
+        text=liked_song_8_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=11, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_8_name, songauthor='', songduration='')
     
     def fixforbutton_9():
         song_9 = tk.Button(master=mainwindow,
         text=liked_song_9_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=12, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_9_name, songauthor='', songduration='')
     
     def fixforbutton_10():
         song_10 = tk.Button(master=mainwindow,
         text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=13, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_10_name, songauthor='', songduration='')
     
     def fixforbutton_11():
         song_11 = tk.Button(master=mainwindow,
         text=liked_song_11_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=14, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_11_name, songauthor='', songduration='')
     
     def fixforbutton_12():
         song_12 = tk.Button(master=mainwindow,
         text=liked_song_6_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=15, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_12_name, songauthor='', songduration='')
     
     def fixforbutton_13():
         song_13 = tk.Button(master=mainwindow,
         text=liked_song_13_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=16, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_13_name, songauthor='', songduration='')
     
     def fixforbutton_14():
         song_14 = tk.Button(master=mainwindow,
         text=liked_song_14_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=17, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_14_name, songauthor='', songduration='')
     
     def fixforbutton_15():
         song_15 = tk.Button(master=mainwindow,
         text=liked_song_15_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=18, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_15_name, songauthor='', songduration='')
     
     def fixforbutton_16():
         song_16 = tk.Button(master=mainwindow,
         text=liked_song_16_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=19, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_16_name, songauthor='', songduration='')
     
     def fixforbutton_17():
         song_17 = tk.Button(master=mainwindow,
         text=liked_song_17_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=20, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_17_name, songauthor='', songduration='')
     
     def fixforbutton_18():
         song_18 = tk.Button(master=mainwindow,
         text=liked_song_18_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=21, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_18_name, songauthor='', songduration='')
     
     def fixforbutton_19():
         song_19 = tk.Button(master=mainwindow,
         text=liked_song_19_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=22, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_19_name, songauthor='', songduration='')
     
     def fixforbutton_20():
         song_20 = tk.Button(master=mainwindow,
         text=liked_song_20_name, bg=deep_black, fg=unhighlighted_text,
         border=0).grid(row=23, column=1)
+
+        writing_to_playlist_database(tablename=search, songname=liked_song_20_name, songauthor='', songduration='')
 
 
     liked_song_1 = tk.Button(master=new_window, text=liked_song_1_name, bg=deep_black, fg=unhighlighted_text, command=fixforbutton_1).grid(row=3, column=0)
@@ -293,100 +378,140 @@ def adding_songs_to_playlist(mainwin):
             text=recent_song_1_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=4, column=1)
 
+            writing_to_playlist_database(tablename=search, songname=recent_song_1_name, songauthor='', songduration='')
+
         def fixforrecentbutton_2():
             song_2 = tk.Button(master=mainwindow,
             text=recent_song_2_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=5, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_2_name, songauthor='', songduration='')
         
         def fixforrecentbutton_3():
             song_3 = tk.Button(master=mainwindow,
             text=recent_song_3_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=6, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_3_name, songauthor='', songduration='')
         
         def fixforrecentbutton_4():
             song_4 = tk.Button(master=mainwindow,
             text=recent_song_4_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=7, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_4_name, songauthor='', songduration='')
         
         def fixforrecentbutton_5():
             song_5 = tk.Button(master=mainwindow,
             text=recent_song_5_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=8, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_5_name, songauthor='', songduration='')
         
         def fixforrecentbutton_6():
             song_6 = tk.Button(master=mainwindow,
             text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=9, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_6_name, songauthor='', songduration='')
         
         def fixforrecentbutton_7():
             song_7 = tk.Button(master=mainwindow,
             text=recent_song_7_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=10, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_7_name, songauthor='', songduration='')
         
         def fixforrecentbutton_8():
             song_8 = tk.Button(master=mainwindow,
-            text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
+            text=recent_song_8_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=11, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_8_name, songauthor='', songduration='')
         
         def fixforrecentbutton_9():
             song_9 = tk.Button(master=mainwindow,
             text=recent_song_9_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=12, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_9_name, songauthor='', songduration='')
         
         def fixforrecentbutton_10():
             song_10 = tk.Button(master=mainwindow,
             text=recent_song_6_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=13, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_10_name, songauthor='', songduration='')
         
         def fixforrecentbutton_11():
             song_11 = tk.Button(master=mainwindow,
             text=recent_song_11_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=14, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_11_name, songauthor='', songduration='')
         
         def fixforrecentbutton_12():
             song_12 = tk.Button(master=mainwindow,
             text=recent_song_12_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=15, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_12_name, songauthor='', songduration='')
         
         def fixforrecentbutton_13():
             song_13 = tk.Button(master=mainwindow,
             text=recent_song_13_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=16, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_13_name, songauthor='', songduration='')
         
         def fixforrecentbutton_14():
             song_14 = tk.Button(master=mainwindow,
             text=recent_song_14_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=17, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_14_name, songauthor='', songduration='')
         
         def fixforrecentbutton_15():
             song_15 = tk.Button(master=mainwindow,
             text=recent_song_15_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=18, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_15_name, songauthor='', songduration='')
         
         def fixforrecentbutton_16():
             song_16 = tk.Button(master=mainwindow,
             text=recent_song_16_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=19, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_16_name, songauthor='', songduration='')
         
         def fixforrecentbutton_17():
             song_17 = tk.Button(master=mainwindow,
             text=recent_song_17_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=20, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_17_name, songauthor='', songduration='')
         
         def fixforrecentbutton_18():
             song_18 = tk.Button(master=mainwindow,
             text=recent_song_18_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=21, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_18_name, songauthor='', songduration='')
         
         def fixforrecentbutton_19():
             song_19 = tk.Button(master=mainwindow,
             text=recent_song_19_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=22, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_19_name, songauthor='', songduration='')
         
         def fixforrecentbutton_20():
             song_20 = tk.Button(master=mainwindow,
             text=recent_song_20_name, bg=deep_black, fg=unhighlighted_text,
             border=0).grid(row=23, column=1)
+
+            writing_to_playlist_database(tablename=search, songname=recent_song_20_name, songauthor='', songduration='')
 
     except UnboundLocalError:
         pass
@@ -415,41 +540,6 @@ def adding_songs_to_playlist(mainwin):
     
     except UnboundLocalError:
         pass
-
-    # recent_songs_rowcount = 3
-
-    # for song in recent_songs_list:
-
-    #     def quickfix():
-    #         add_song_to_playlist(songtoadd=song, mainwin=mainwindow)
-
-    #     song_button = tk.Button(master=new_window,
-    #     text=song,
-    #     bg=deep_black,
-    #     command=quickfix,
-    #     fg=unhighlighted_text,
-    #     border=0).grid(row=recent_songs_rowcount, column=3)
-
-    #     recent_songs_rowcount += 1
-
-    # search bar
-    search_bar = tk.Label(master=new_window,
-    text="Search", font=large_font,
-    width=35, bg=deep_black, fg=unhighlighted_text, border=0).grid(row=1, column=1)
-
-    search_entry_text = tk.StringVar()
-    search_entry_field = tk.Entry(master=new_window,
-    textvariable=search_bar).grid(row=2, column=1, columnspan=2)
-
-    def search_enter_command():
-
-        search = search_entry_text.get()
-        real_search(search=search)
-        writing_search_to_db(search=search)
-    
-    search_enter_button = tk.Button(master=new_window,
-    command=search_enter_command,
-    bg=deep_black, fg=unhighlighted_text, border=0).grid(row=2, column=3)    
 
     new_window.mainloop()
     

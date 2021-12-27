@@ -20,7 +20,7 @@ username = str()
 class Login:        
     def __init__(self):
 
-        """Setting up the main window"""
+        """Setting up the main login window"""
 
         self.main_login_window = tk.Tk()
         self.main_login_window.config(bg=deep_black)
