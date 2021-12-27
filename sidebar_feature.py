@@ -14,6 +14,7 @@ from searching_feature_frontend import search_compiled
 from recent_songs_feature import recent_songs_compiled
 from home_feature import HomeFeature
 from liked_songs_feature import liked_songs_screen_compiled
+from playlist_feature import creatingplaylist_compiled
 
 """Sidebar class"""
 
@@ -165,6 +166,7 @@ class SideBar():
         text="Create Playlist",
         bg=deep_black,
         fg=unhighlighted_text,
+        command=creatingplaylist_compiled,
         height=1, width=10,
         border=0)
 
